@@ -1,7 +1,7 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
-
-
+//変数宣言
+$input = array("ネオ", "モーフィアス", "トリニティ", "サイファー", "タンク");
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -19,6 +19,7 @@ if($type != "text"){
 
 //返信データ作成
 if ($text == 'はい') {
+    $rand_keys=array_rand($input, 1);
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらのオリジナルメニューはいかがですか？",
@@ -26,7 +27,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => "お探しのオリジナルメニューはこれですね",
+      "text" => $input[$rand_keys[0]],
       "actions" => [
           [
             "type" => "uri",
