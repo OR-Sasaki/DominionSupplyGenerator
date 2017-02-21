@@ -1,6 +1,7 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
-
+//配列定義
+$box=array(いち,に,さん,よん,ご);
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -25,7 +26,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => strval(mt_rand()),
+      "text" => strval(box[mt_rand(1,5)]),
       "actions" => [
           [
             "type" => "uri",
