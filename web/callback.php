@@ -14,14 +14,11 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
-	$response_format_text = [
-	 
-	]
 	exit;
 }
 
 //返信データ作成
-if ($text == 'おほ～') {
+if ($text == 'はい') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらのオリジナルメニューはいかがですか？",
@@ -45,11 +42,6 @@ if ($text == 'おほ～') {
     ]
   ];
 } else if ($text == 'いいえ') {
- /*$response_format_text = [
-  "template" => [
-   "text" => "ほんじゃ、まったの～"
-   ]
-  ]*/
   exit;
 } else if ($text == '違うやつお願い') {
   $response_format_text = [
@@ -60,7 +52,7 @@ if ($text == 'おほ～') {
       "columns" => [
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
-            "title" => "味噌キムチラーメン",
+             "title" => "味噌キムチラーメン",
             "text" => "こちらにしますか？",
             "actions" => [
               [
@@ -103,16 +95,16 @@ if ($text == 'おほ～') {
     "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、シャムで～す！",
+        "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、",
         "actions" => [
             [
               "type" => "message",
-              "label" => "おほ～",
-              "text" => "おほ～"
+              "label" => "シャムで～す！",
+              "text" => "はい"
             ],
             [
               "type" => "message",
-              "label" => "いいえ",
+              "label" => "シャムではない",
               "text" => "いいえ"
             ]
         ]
