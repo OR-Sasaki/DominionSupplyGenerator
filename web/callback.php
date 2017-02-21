@@ -21,7 +21,7 @@ if($type != "text"){
 }
 
 //返信データ作成
-if ($text == 'おほ^～') {
+if ($text == 'おほ～') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらのオリジナルメニューはいかがですか？",
@@ -45,11 +45,11 @@ if ($text == 'おほ^～') {
     ]
   ];
 } else if ($text == 'いいえ') {
- $response_format_text = [
+ /*$response_format_text = [
   "template" => [
    "text" => "ほんじゃ、まったの～"
    ]
-  ]
+  ]*/
   exit;
 } else if ($text == '違うやつお願い') {
   $response_format_text = [
@@ -107,8 +107,8 @@ if ($text == 'おほ^～') {
         "actions" => [
             [
               "type" => "message",
-              "label" => "おほ^～",
-              "text" => "おほ^～"
+              "label" => "おほ～",
+              "text" => "おほ～"
             ],
             [
               "type" => "message",
