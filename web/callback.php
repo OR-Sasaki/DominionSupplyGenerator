@@ -1,7 +1,7 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //配列定義
-$box=array(いち,に,さん,よん,ご);
+$box=array("いち","に","さん","よん","ご");
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
