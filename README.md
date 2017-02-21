@@ -1,0 +1,2 @@
+# LineDominionSuprrr
+ドミニオンのサプライを出すLINEBOT
