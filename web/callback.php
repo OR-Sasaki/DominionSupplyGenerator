@@ -1,8 +1,6 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
-//変数宣言
-$input = array("ネオ", "モーフィアス", "トリニティ", "サイファー", "タンク");
-$rand_keys=array_rand($input, 1);
+
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -27,7 +25,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => $input[$rand_keys[0]],
+      "text" => strval(mt_rand),
       "actions" => [
           [
             "type" => "uri",
