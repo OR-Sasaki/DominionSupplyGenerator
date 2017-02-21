@@ -26,7 +26,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => strval(box[1]),
+      "text" => $box[1],
       "actions" => [
           [
             "type" => "uri",
