@@ -14,11 +14,14 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
+	$response_format_text = [
+	 
+	]
 	exit;
 }
 
 //返信データ作成
-if ($text == 'はい') {
+if ($text == 'おほ^～') {
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらのオリジナルメニューはいかがですか？",
@@ -42,6 +45,11 @@ if ($text == 'はい') {
     ]
   ];
 } else if ($text == 'いいえ') {
+ $response_format_text = [
+  "template" => [
+   "text" => "ほんじゃ、まったの～"
+   ]
+  ]
   exit;
 } else if ($text == '違うやつお願い') {
   $response_format_text = [
@@ -52,67 +60,37 @@ if ($text == 'はい') {
       "columns" => [
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
-            "title" => "●●レストラン",
+            "title" => "味噌キムチラーメン",
             "text" => "こちらにしますか？",
             "actions" => [
               [
-                  "type" => "postback",
-                  "label" => "予約する",
-                  "data" => "action=rsv&itemid=111"
-              ],
-              [
-                  "type" => "postback",
-                  "label" => "電話する",
-                  "data" => "action=pcall&itemid=111"
-              ],
-              [
                   "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
-                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+                  "label" => "動画を見る",
+                  "uri" => "http://www.nicovideo.jp/watch/sm28066128"
               ]
             ]
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
-            "title" => "▲▲レストラン",
+            "title" => "カレーピラフ",
             "text" => "それともこちら？（２つ目）",
             "actions" => [
               [
-                  "type" => "postback",
-                  "label" => "予約する",
-                  "data" => "action=rsv&itemid=222"
-              ],
-              [
-                  "type" => "postback",
-                  "label" => "電話する",
-                  "data" => "action=pcall&itemid=222"
-              ],
-              [
                   "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
-                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+                  "label" => "動画を見る",
+                  "uri" => "http://www.nicovideo.jp/watch/sm28017716"
               ]
             ]
           ],
           [
             "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-3.jpg",
-            "title" => "■■レストラン",
+            "title" => "チョコフレークケーキ",
             "text" => "はたまたこちら？（３つ目）",
             "actions" => [
               [
-                  "type" => "postback",
-                  "label" => "予約する",
-                  "data" => "action=rsv&itemid=333"
-              ],
-              [
-                  "type" => "postback",
-                  "label" => "電話する",
-                  "data" => "action=pcall&itemid=333"
-              ],
-              [
                   "type" => "uri",
-                  "label" => "詳しく見る（ブラウザ起動）",
-                  "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+                  "label" => "動画を見る",
+                  "uri" => "http://www.nicovideo.jp/watch/sm28035912"
               ]
             ]
           ]
@@ -125,16 +103,16 @@ if ($text == 'はい') {
     "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、",
+        "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、シャムで～す！",
         "actions" => [
             [
               "type" => "message",
-              "label" => "シャムで～す！",
-              "text" => "はい"
+              "label" => "おほ^～",
+              "text" => "おほ^～"
             ],
             [
               "type" => "message",
-              "label" => "シャムではない",
+              "label" => "いいえ",
               "text" => "いいえ"
             ]
         ]
