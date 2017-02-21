@@ -21,27 +21,17 @@ if($type != "text"){
 if ($text == 'はい') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こちらの〇〇はいかがですか？",
+    "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
-      "title" => "○○レストラン",
-      "text" => "お探しのレストランはこれですね",
+      "title" => "カツカレー炒飯",
+      "text" => "お探しのオリジナルメニューはこれですね",
       "actions" => [
           [
-            "type" => "postback",
-            "label" => "予約する",
-            "data" => "action=buy&itemid=123"
-          ],
-          [
-            "type" => "postback",
-            "label" => "電話する",
-            "data" => "action=pcall&itemid=123"
-          ],
-          [
             "type" => "uri",
-            "label" => "詳しく見る",
-            "uri" => "https://" . $_SERVER['SERVER_NAME'] . "/"
+            "label" => "動画を見る",
+            "uri" => "http://www.nicovideo.jp/watch/sm27636439"
           ],
           [
             "type" => "message",
@@ -135,16 +125,16 @@ if ($text == 'はい') {
     "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "confirm",
-        "text" => "こんにちわ 何かご用ですか？",
+        "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、",
         "actions" => [
             [
               "type" => "message",
-              "label" => "はい",
+              "label" => "シャムで～す！",
               "text" => "はい"
             ],
             [
               "type" => "message",
-              "label" => "いいえ",
+              "label" => "シャムではない",
               "text" => "いいえ"
             ]
         ]
