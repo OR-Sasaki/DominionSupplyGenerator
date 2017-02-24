@@ -1,7 +1,7 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //CSVファイル読み込み
-$filepath="kakutyo.csv"
+$filepath="kakutyo.csv";
 $file = new SplFileObject($filepath); 
 $file->setFlags(SplFileObject::READ_CSV); 
 /*foreach ($file as $line) {
