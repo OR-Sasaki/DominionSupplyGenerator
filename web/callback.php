@@ -1,8 +1,12 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
+//CSVファイル読み込み
+$fp = fopen("kakutyo.csv", "r");
+$data = fgetcsv($fp, 10000);
 //配列定義
 $box=array("いち","に","さん","よん","ご");
-$key = array_rand($box);
+//配列の中からランダムな要素のポインタを取得
+$key = array_rand($data);
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -90,12 +94,12 @@ if ($text == 'はい') {
       ]
     ]
   ];
-} else {
+} else if($text == 'シャム'){
   $response_format_text = [
     "type" => "template",
     "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
-        "type" => "confirm",
+        "type" => "buttons",
         "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、",
         "actions" => [
             [
