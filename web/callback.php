@@ -33,7 +33,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => $data[$key],
+      "text" => $data[0],
       "actions" => [
           [
             "type" => "uri",
