@@ -3,7 +3,7 @@ $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //ファイル読み込み
 $lines = file('kakutyo.csv');
 foreach($lines as $line){
-	$data = explode(',',$line);
+	$data[] = explode(',',$line);
 }
 //配列定義
 $box=array("いち","に","さん","よん","ご");
