@@ -1,19 +1,9 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
-//CSVファイル読み込み
-$filepath="kakutyo.csv";
-$file = new SplFileObject($filepath); 
-$file->setFlags(SplFileObject::READ_CSV); 
-/*foreach ($file as $line) {
-  //終端の空行を除く処理
-  if(is_null($line[0]){
-    $records[] = $line;
-  }
-}*/ 
 //配列定義
 $box=array("いち","に","さん","よん","ご");
 //配列の中からランダムな要素のポインタを取得
-$key = array_rand($data);
+$key = array_rand($box);
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -38,7 +28,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => $file[1],
+      "text" => $box[$key],
       "actions" => [
           [
             "type" => "uri",
