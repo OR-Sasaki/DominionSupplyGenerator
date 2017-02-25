@@ -18,7 +18,6 @@ if($type != "text"){
 }
 //返信データ作成 
 if ($text == 'はい') {
-	$testbox="";
 	$kihoncords=array("地下貯蔵庫",
 		     "礼拝堂",
 		     "堀",
@@ -96,11 +95,38 @@ if ($text == 'はい') {
 			  "商船",
 			  "前哨地",
 			  "船着場");
+	$ikyoucords=array("岐路",
+			  "公爵夫人",
+			  "愚者の黄金",
+			  "オアシス",
+			  "開発",
+			  "画策",
+			  "神託",
+			  "坑道",
+			  "香辛料商人",
+			  "遊牧民の野営地",
+			  "よろずや",
+			  "義賊",
+			  "交易人",
+			  "シルクロード",
+			  "街道",
+			  "官吏",
+			  "厩舎",
+			  "大使館",
+			  "地図職人",
+			  "値切り屋",
+			  "宿屋",
+			  "辺境伯",
+			  "不正利得",
+			  "埋蔵金",
+			  "国境の村",
+			  "農地");
 	$inboucords=array(
     for($i=0;$i<10;$i++){
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
     }
+    $kihonbox="";$inboubox="";$umibebox="";$ikyoubox"";
     $keys=array_keys($kihoncords);
     shuffle($keys);
     for($i=0;$i<$boxnum[1][0];$i++){
