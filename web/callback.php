@@ -46,7 +46,7 @@ if ($text == 'はい') {
 	       "魔女",
 	       "冒険者");
     
-    $key = array_rand($cord);
+    //$key = array_rand($cord);
     for($i=0;$i<10;$i++){
     	$boxnum[1][rand(0,3)]++;
     }
