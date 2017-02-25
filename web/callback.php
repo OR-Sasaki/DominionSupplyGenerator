@@ -18,7 +18,8 @@ if($type != "text"){
 }
 //返信データ作成
 if ($text == 'はい') {
-	$cords=array("地下貯蔵庫",
+	$testbox="";
+	$kihoncords=array("地下貯蔵庫",
 		     "礼拝堂",
 		     "堀",
 		     "木こり",
@@ -46,9 +47,13 @@ if ($text == 'はい') {
 		     "魔女",
 		     "冒険者");
     for($i=0;$i<10;$i++){
-    	$boxnum[1][rand(0,3)]++;
+	$randnum=rand(0,3);
+    	$boxnum[1][$randnum]++;
+	if($randnum==0){
+	    $key=array_rand($kihoncords);
+	    $testbox=$testbox.$kihoncords[$key];
+	}
     }
-    $testbox="さぷらいが"."ひょうじされます";
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらのオリジナルメニューはいかがですか？",
