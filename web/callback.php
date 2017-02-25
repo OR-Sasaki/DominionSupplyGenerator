@@ -20,7 +20,7 @@ if($type != "text"){
 //返信データ作成
 if ($text == 'はい') {
     //ファイル読み込み
-    $liness = file("kakutyo.csv");
+    $liness = file("../web/kakutyo.csv");
     foreach($liness as $looss){
     $data[] = explode(",",$looss);}
     //配列の中からランダムな要素のポインタを取得
