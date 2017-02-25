@@ -19,11 +19,6 @@ if($type != "text"){
 
 //返信データ作成
 if ($text == 'はい') {
-    //ファイル読み込み
-    $liness = file('/kakutyo.csv');
-    /*foreach($liness as $looss){
-    $data[] = explode(",",$looss);}*/
-    //配列の中からランダムな要素のポインタを取得
     $key = array_rand($box);
   $response_format_text = [
     "type" => "template",
@@ -32,7 +27,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => $liness[0],
+      "text" => $box[$key],
       "actions" => [
           [
             "type" => "uri",
