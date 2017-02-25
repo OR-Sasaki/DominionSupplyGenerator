@@ -45,13 +45,14 @@ if ($text == 'はい') {
 		     "書庫",
 		     "魔女",
 		     "冒険者");
-	$inbou=array("手先",
+	/*$inboucords=array("手先",
 		     "中庭",
 		     "秘密の部屋",
 		     "仮面舞踏会",
 		     "執事",
 		     "願いの井戸",
-		     "貧民街","詐欺師",
+		     "貧民街",
+		     "詐欺師",
 		     "大広間",
 		     "共謀者",
 		     "鉱山の村",
@@ -68,8 +69,8 @@ if ($text == 'はい') {
 		     "破壊工作員",
 		     "公爵",
 		     "貴族",
-		     "ハーレム");
-	$umibecords=array("原住民の村",
+		     "ハーレム");*/
+	/*$umibecords=array("原住民の村",
 			  "真珠採り",
 			  "抑留",
 			  "停泊所",
@@ -94,8 +95,8 @@ if ($text == 'はい') {
 			  "策士",
 			  "商船",
 			  "前哨地",
-			  "船着場");
-	$ikyoucords=array("岐路",
+			  "船着場");*/
+	/*$ikyoucords=array("岐路",
 			  "公爵夫人",
 			  "愚者の黄金",
 			  "オアシス",
@@ -120,12 +121,12 @@ if ($text == 'はい') {
 			  "不正利得",
 			  "埋蔵金",
 			  "国境の村",
-			  "農地");
+			  "農地");*/
     for($i=0;$i<10;$i++){
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
     }
-    $kihonbox="";$inboubox="";$umibebox="";$ikyoubox"";
+    //$kihonbox="";$inboubox="";$umibebox="";$ikyoubox"";
     $keys=array_keys($kihoncords);
     shuffle($keys);
     for($i=0;$i<$boxnum[1][0];$i++){
