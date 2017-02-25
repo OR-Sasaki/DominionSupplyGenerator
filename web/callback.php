@@ -1,7 +1,9 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //配列定義
-$box=array("いち","に","さん","よん","ご");
+$box=array("基本","陰謀","異郷","海辺");
+$num=array(0,0,0,0);
+$boxnum=array($box,$num);
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -19,15 +21,17 @@ if($type != "text"){
 
 //返信データ作成
 if ($text == 'はい') {
-    $key = array_rand($box);
+    //$key = array_rand($box);
+    for($i=0;$i<10;$i++){
+    	$boxnum[1][rand(0,3)]++;
+    }
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
       "type" => "buttons",
-      "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => $box[$key],
+      "text" => "基本は".$boxnum,
       "actions" => [
           [
             "type" => "uri",
