@@ -108,7 +108,7 @@ $ikyoucords=array("岐路",
 			  "埋蔵金",
 			  "国境の村",
 			  "農地");
-$teikokucords=array("資料庫",
+/*$teikokucords=array("資料庫",
 		    "元手",
 		    "投石機/石",
 		    "戦車競走",
@@ -132,7 +132,7 @@ $teikokucords=array("資料庫",
 		    "ヴィラ",
 		    "ワイルドハント",
 		    "城",
-		    "アヴァント/サウナ");
+		    "アヴァント/サウナ");*/
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
