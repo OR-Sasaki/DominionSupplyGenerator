@@ -22,7 +22,7 @@ if($type != "text"){
 //返信データ作成
 if ($text == 'はい') {
     //$key = array_rand($box);
-    for($i=0;$i<100;$i++){
+    for($i=0;$i<10;$i++){
     	$boxnum[1][rand(0,3)]++;
     }
   $response_format_text = [
@@ -31,7 +31,7 @@ if ($text == 'はい') {
     "template" => [
       "type" => "buttons",
       "title" => "カツカレー炒飯",
-      "text" => "基本は".$boxnum[1][0],
+      "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3],
       "actions" => [
           [
             "type" => "uri",
