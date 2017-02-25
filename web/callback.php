@@ -52,7 +52,7 @@ if ($text == 'はい') {
     }
     $keys=array_keys($kihoncords);
     shuffle($keys);
-    foreach($i=0;$i<$boxnum[1][0];$i++){
+    for($i=0;$i<$boxnum[1][0];$i++){
     	$testbox=$textbox.$kihoncords[$keys[$i]].",";
     }
   $response_format_text = [
