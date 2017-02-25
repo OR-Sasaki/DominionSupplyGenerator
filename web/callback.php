@@ -133,6 +133,20 @@ $teikokucords=array("資料庫",
 		    "ワイルドハント",
 		    "城",
 		    "アヴァント/サウナ");
+$eventcords=array("意外な授かり物",
+		  "宴会",
+		  "凱旋",
+		  "儀式",
+		  "寄付",
+		  "掘進",
+		  "結婚式",
+		  "昇進",
+		  "制圧",
+		  "征服",
+		  "大地への塩まき",
+		  "徴税",
+		  "併合");
+		  
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
