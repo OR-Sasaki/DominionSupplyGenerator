@@ -7,29 +7,40 @@ $boxnum=array($box,$num);
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
-
 $type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
 //メッセージ取得
 $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
 	exit;
 }
-
 //返信データ作成
 if ($text == 'はい') {
     //$key = array_rand($box);
-    //それぞれの拡張の個数を決定
     for($i=0;$i<10;$i++){
     	$boxnum[1][rand(0,3)]++;
     }
   $response_format_text = [
     "type" => "template",
+    "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
-      "text" => "基本は".$boxnum[1][0]"個",
+      "type" => "buttons",
+      "title" => "カツカレー炒飯",
+      "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3],
+      "actions" => [
+          [
+            "type" => "uri",
+            "label" => "動画を見る",
+            "uri" => "http://www.nicovideo.jp/watch/sm27636439"
+          ],
+          [
+            "type" => "message",
+            "label" => "違うやつ",
+            "text" => "違うやつお願い"
+          ]
+      ]
     ]
   ];
 } else if ($text == 'いいえ') {
@@ -102,12 +113,10 @@ if ($text == 'はい') {
     ]
   ];
 }
-
 $post_data = [
 	"replyToken" => $replyToken,
 	"messages" => [$response_format_text]
 	];
-
 $ch = curl_init("https://api.line.me/v2/bot/message/reply");
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
