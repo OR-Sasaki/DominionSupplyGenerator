@@ -31,7 +31,7 @@ if ($text == 'はい') {
     "template" => [
       "type" => "buttons",
       "title" => "カツカレー炒飯",
-      "text" => "基本は".$boxnum,
+      "text" => "基本は".$boxnum[1][0],
       "actions" => [
           [
             "type" => "uri",
