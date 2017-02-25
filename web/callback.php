@@ -224,8 +224,8 @@ if ($text == 'はい') {
       "type" => "carousel",
       "columns" => [
           [
-            "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."異郷".$boxnum[1][2],
-            "text" => $kihonbox."\n".$inboubox."\n".$ikyoubox,
+            "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1],
+            "text" => $kihonbox."\n".$inboubox,
             "actions" => [
               [
             "type" => "message",
@@ -235,8 +235,8 @@ if ($text == 'はい') {
             ]
           ],
           [
-            "title" => "海辺".$boxnum[1][3],
-            "text" => $umibebox,
+            "title" => "海辺".$boxnum[1][3]."異郷".$boxnum[1][2],
+            "text" => $umibebox."\n".$ikyoubox,
             "actions" => [
               [
             "type" => "message",
