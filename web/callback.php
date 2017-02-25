@@ -1,8 +1,8 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //配列定義 
-$box=array("基本","陰謀","異郷","海辺");
-$num=array(0,0,0,0);
+$box=array("基本","陰謀","異郷","海辺","帝国");
+$num=array(0,0,0,0,0);
 $boxnum=array($box,$num);
 $kihoncords=array("地下貯蔵庫",
 		     "礼拝堂",
@@ -193,7 +193,7 @@ if ($text == 'はい') {
 } else if ($text == '違うやつお願い') {
 } else if($text == 'シャム'){
 	for($i=0;$i<10;$i++){
-	$randnum=rand(0,3);
+	$randnum=rand(0,4);
     	$boxnum[1][$randnum]++;
     }
     $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";
@@ -216,10 +216,15 @@ if ($text == 'はい') {
     shuffle($keys);
 	for($i=0;$i<$boxnum[1][3];$i++){
 		$umibebox=$umibebox.$umibecords[$keys[$i]].",";
-	} 
+	}
+    $keys=array_keys($teikokucords);
+    shuffle($keys);
+	for($i=0;$i<$boxnum[1][4];$i++){
+		$teikokubox=$teikokubox.$teikokucords[$keys[$i]].",";
+	}
   $response_format_text = [
     "type" => "template",
-    "altText" => "候補を３つご案内しています。",
+    "altText" => "サプライを表示しています",
     "template" => [
       "type" => "carousel",
       "columns" => [
@@ -237,6 +242,17 @@ if ($text == 'はい') {
           [
             "title" => "海辺".$boxnum[1][3]."異郷".$boxnum[1][2],
             "text" => $umibebox."\n".$ikyoubox,
+            "actions" => [
+              [
+            "type" => "message",
+            "label" => "もっかい",
+            "text" => "シャム"
+              ]
+            ]
+          ],
+	  [
+            "title" => "帝国".$boxnum[1][4],
+            "text" => $teikokubox,
             "actions" => [
               [
             "type" => "message",
