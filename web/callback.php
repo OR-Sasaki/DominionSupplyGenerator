@@ -1,8 +1,8 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //配列定義 
-$box=array("基本","陰謀","異郷","海辺");
-$num=array(0,0,0,0);
+$box=array("基本","陰謀","異郷","海辺","帝国");
+$num=array(0,0,0,0,0);
 $boxnum=array($box,$num);
 $kihoncords=array("地下貯蔵庫",
 		     "礼拝堂",
@@ -108,6 +108,31 @@ $ikyoucords=array("岐路",
 			  "埋蔵金",
 			  "国境の村",
 			  "農地");
+$teikokucords=array("資料庫",
+		    "元手",
+		    "投石機/石",
+		    "戦車競走",
+		    "御守り",
+		    "市街",
+		    "冠",
+		    "陣地/鹵獲品",
+		    "女魔術師",
+		    "技術者",
+		    "農家の市場",
+		    "公共広場",
+		    "剣闘士/大金",
+		    "庭師",
+		    "軍団兵",
+		    "王室の鍛冶屋",
+		    "大君主",
+		    "パトリキ/エンポリウム",
+		    "生贄",
+		    "開拓者/騒がしい村",
+		    "神殿",
+		    "ヴィラ",
+		    "ワイルドハント",
+		    "城",
+		    "アヴァント/サウナ");
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -168,10 +193,10 @@ if ($text == 'はい') {
 } else if ($text == '違うやつお願い') {
 } else if($text == 'シャム'){
 	for($i=0;$i<10;$i++){
-	$randnum=rand(0,3);
+	$randnum=rand(0,4);
     	$boxnum[1][$randnum]++;
     }
-    $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";
+    $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";$teikokubox="【帝】";
     $keys=array_keys($kihoncords);
     shuffle($keys);
 	for($i=0;$i<$boxnum[1][0];$i++){
@@ -192,15 +217,20 @@ if ($text == 'はい') {
 	for($i=0;$i<$boxnum[1][3];$i++){
 		$umibebox=$umibebox.$umibecords[$keys[$i]].",";
 	} 
+    $keys=array_keys($teikokucords);
+    shuffle($keys);
+	for($i=0;$i<$boxnum[1][4];$i++){
+		$teikokubox=$teikoubox.$teikokucords[$keys[$i]].",";
+	} 
   $response_format_text = [
     "type" => "template",
-    "altText" => "候補を３つご案内しています。",
+    "altText" => "サプライを表示中",
     "template" => [
       "type" => "carousel",
       "columns" => [
           [
-            "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1],
-            "text" => $kihonbox."\n".$inboubox,
+            "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."異郷".$boxnum[1][2],
+            "text" => $kihonbox."\n".$inboubox."\n".$ikyoubox,
             "actions" => [
               [
             "type" => "message",
@@ -210,8 +240,8 @@ if ($text == 'はい') {
             ]
           ],
           [
-            "title" => "異郷".$boxnum[1][2]."海辺".$boxnum[1][3],
-            "text" => $ikyoubox."\n".$umibebox,
+            "title" => "海辺".$boxnum[1][3]."帝国".$boxnum[1][4],
+            "text" => $umibebox."\n".$teikokubox;
             "actions" => [
               [
             "type" => "message",
