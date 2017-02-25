@@ -23,9 +23,11 @@ if ($text == 'はい') {
     	$boxnum[1][rand(0,3)]++;
     }
   $response_format_text = [
+    "type" => "template",
+    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "buttons",
-        "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3],
+        "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、",
         "actions" => [
             [
               "type" => "message",
