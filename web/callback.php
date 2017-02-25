@@ -27,18 +27,8 @@ if ($text == 'はい') {
     "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "buttons",
-        "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、",
+        "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3],
         "actions" => [
-            [
-              "type" => "message",
-              "label" => "シャムで～す！",
-              "text" => "はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "シャムではない",
-              "text" => "いいえ"
-            ]
         ]
     ]
   ];
