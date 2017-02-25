@@ -108,21 +108,7 @@ $ikyoucords=array("岐路",
 			  "埋蔵金",
 			  "国境の村",
 			  "農地");
-//ユーザーからのメッセージ取得
-$json_string = file_get_contents('php://input');
-$jsonObj = json_decode($json_string);
-$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
-//メッセージ取得
-$text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
-//ReplyToken取得
-$replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-//メッセージ以外のときは何も返さず終了
-if($type != "text"){
-    exit;
-}
-//返信データ作成 
-if ($text == 'はい') {
-    for($i=0;$i<10;$i++){
+for($i=0;$i<10;$i++){
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
     }
@@ -147,9 +133,22 @@ if ($text == 'はい') {
 	for($i=0;$i<$boxnum[1][3];$i++){
 		$umibebox=$umibebox.$umibecords[$keys[$i]].",";
 	}
+//ユーザーからのメッセージ取得
+$json_string = file_get_contents('php://input');
+$jsonObj = json_decode($json_string);
+$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
+//メッセージ取得
+$text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
+//ReplyToken取得
+$replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
+//メッセージ以外のときは何も返さず終了
+if($type != "text"){
+    exit;
+}
+//返信データ作成 
+if ($text == 'はい') {
   $response_format_text = [
     "type" => "template",
-    "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
       "type" => "buttons",
       "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."異郷".$boxnum[1][2]."海辺".$boxnum[1][3],
