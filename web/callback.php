@@ -23,10 +23,21 @@ if ($text == 'はい') {
     	$boxnum[1][rand(0,3)]++;
     }
   $response_format_text = [
-    "type" => "template",
     "template" => [
-      "type" => "buttons",
-      "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3]
+        "type" => "buttons",
+        "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3],
+        "actions" => [
+            [
+              "type" => "message",
+              "label" => "シャムで～す！",
+              "text" => "はい"
+            ],
+            [
+              "type" => "message",
+              "label" => "シャムではない",
+              "text" => "いいえ"
+            ]
+        ]
     ]
   ];
 } else if ($text == 'いいえ') {
