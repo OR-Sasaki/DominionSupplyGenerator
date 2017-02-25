@@ -1,10 +1,10 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //ファイル読み込み
-/*$lines = file('kakutyo.csv');
+$lines = file("kakutyo.csv");
 foreach($lines as $line){
-	$data[] = explode(',',$line);
-}*/
+	$data[] = explode(",",$line);
+}
 //配列定義
 $box=array("いち","に","さん","よん","ご");
 //配列の中からランダムな要素のポインタを取得
@@ -33,7 +33,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => $box[0],
+      "text" => $data[0],
       "actions" => [
           [
             "type" => "uri",
