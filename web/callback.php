@@ -24,23 +24,9 @@ if ($text == 'はい') {
     }
   $response_format_text = [
     "type" => "template",
-    "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
-      "type" => "buttons",
-      "title" => "カツカレー炒飯",
+      //"type" => "buttons",
       "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3],
-      "actions" => [
-          [
-            "type" => "uri",
-            "label" => "動画を見る",
-            "uri" => "http://www.nicovideo.jp/watch/sm27636439"
-          ],
-          [
-            "type" => "message",
-            "label" => "違うやつ",
-            "text" => "違うやつお願い"
-          ]
-      ]
     ]
   ];
 } else if ($text == 'いいえ') {
