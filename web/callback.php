@@ -264,7 +264,7 @@ if ($text == 'はい') {
 	}
     $keys=array_keys($randcords);
     shuffle($keys);
-	for($i=0;$i<$boxnum[1][3];$i++){
+	for($i=0;$i<2;$i++){
 		$randbox=$randbox.$randcords[$keys[$i]].",";
 	}
   $response_format_text = [
