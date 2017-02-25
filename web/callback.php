@@ -31,8 +31,8 @@ if ($text == 'はい') {
       "actions" => [
           [
             "type" => "message",
-            "label" => "違うやつ",
-            "text" => "違うやつお願い"
+            "label" => "もっかい",
+            "text" => "はい"
           ]
       ]
     ]
