@@ -49,10 +49,11 @@ if ($text == 'はい') {
     for($i=0;$i<10;$i++){
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
-	if($randnum==0){
-	    $key=array_rand($kihoncords);
-	    $testbox=$testbox.$kihoncords[$key];
-	}
+    }
+    $keys=array_rand($kihoncords,$boxnum[1][0]);
+    shuffle($keys);
+    foreach($keys as $key){
+    	$testbox=$textbox.",".$kihoncords[$key];
     }
   $response_format_text = [
     "type" => "template",
