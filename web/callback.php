@@ -2,7 +2,7 @@
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //配列定義 
 $box=array("基本","陰謀","異郷","海辺","帝国");
-$num=array(0,0,0,0,0);
+$num=array(0,0,0,0,0); 
 $boxnum=array($box,$num);
 $kihoncords=array("地下貯蔵庫",
 		     "礼拝堂",
