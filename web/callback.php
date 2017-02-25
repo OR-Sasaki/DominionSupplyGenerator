@@ -137,15 +137,15 @@ if ($text == 'はい') {
 	for($i=0;$i<$boxnum[1][1];$i++){
 		$inboubox=$inboubox.$inboucords[$keys[$i]].",";
 	}
-    $keys=array_keys($umibecords);
-    shuffle($keys);
-	for($i=0;$i<$boxnum[1][2];$i++){
-		$umibebox=$umibebox.$umibecords[$keys[$i]].",";
-	}
     $keys=array_keys($ikyoucords);
     shuffle($keys);
-	for($i=0;$i<$boxnum[1][3];$i++){
+	for($i=0;$i<$boxnum[1][2];$i++){
 		$ikyoubox=$ikyoubox.$ikyoucords[$keys[$i]].",";
+	}
+    $keys=array_keys($umibecords);
+    shuffle($keys);
+	for($i=0;$i<$boxnum[1][3];$i++){
+		$umibebox=$umibebox.$umibecords[$keys[$i]].",";
 	}
   $response_format_text = [
     "type" => "template",
