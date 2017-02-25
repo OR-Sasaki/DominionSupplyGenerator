@@ -199,8 +199,7 @@ if ($text == 'はい') {
       "type" => "carousel",
       "columns" => [
           [
-            "title" => "基本".$boxnum[1][0]."
-	    "."陰謀".$boxnum[1][1],
+            "title" => "基本".$boxnum[1][0]."\n"."陰謀".$boxnum[1][1],
             "text" => $kihonbox.$inboubox,
             "actions" => [
               [
