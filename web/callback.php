@@ -191,7 +191,7 @@ if ($text == 'はい') {
     shuffle($keys);
 	for($i=0;$i<$boxnum[1][3];$i++){
 		$umibebox=$umibebox.$umibecords[$keys[$i]].",";
-	}
+	} 
   $response_format_text = [
     "type" => "template",
     "altText" => "候補を３つご案内しています。",
