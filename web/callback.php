@@ -126,7 +126,7 @@ if ($text == 'はい') {
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
     }
-    $kihonbox="「基本」";$inboubox="「陰謀」";$umibebox="「海辺」";$ikyoubox="「異郷」";
+    $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";
     $keys=array_keys($kihoncords);
     shuffle($keys);
 	for($i=0;$i<$boxnum[1][0];$i++){
@@ -153,7 +153,7 @@ if ($text == 'はい') {
     "template" => [
       "type" => "buttons",
       "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."異郷".$boxnum[1][2]."海辺".$boxnum[1][3],
-      "text" => $kihonbox.$inboubox.$umibebox.$ikyoubox,
+      "text" => $kihonbox.$inboubox.$ikyoubox.$umibebox,
       "actions" => [
           [
             "type" => "message",
