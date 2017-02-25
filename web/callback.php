@@ -126,7 +126,7 @@ if ($text == 'はい') {
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
     }
-    //$kihonbox="";$inboubox="";$umibebox="";$ikyoubox"";
+    $kihonbox="";$inboubox="";$umibebox="";$ikyoubox="";
     $keys=array_keys($kihoncords);
     shuffle($keys);
     for($i=0;$i<$boxnum[1][0];$i++){
