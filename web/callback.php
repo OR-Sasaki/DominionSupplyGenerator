@@ -22,7 +22,7 @@ if($type != "text"){
 //返信データ作成
 if ($text == 'はい') {
     //$key = array_rand($box);
-    for($i=0;$i<10;$i++){
+    for($i=0;$i<100;$i++){
     	$boxnum[1][rand(0,3)]++;
     }
   $response_format_text = [
