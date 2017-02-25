@@ -146,7 +146,27 @@ $eventcords=array("意外な授かり物",
 		  "大地への塩まき",
 		  "徴税",
 		  "併合");
-		  
+$randcords=array("狼の巣",
+		 "オベリスク",
+		 "凱旋門",
+		 "果樹園",
+		 "壁",
+		 "宮殿",
+		 "汚された神殿",
+		 "公会堂",
+		 "山賊の砦",
+		 "水道橋",
+		 "戦場",
+		 "搭",
+		 "闘技場",
+		 "峠",
+		 "砦",
+		 "博物館",
+		 "噴水",
+		 "墓標",
+		 "迷宮",
+		 "浴場",
+		 "列柱");
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -242,6 +262,11 @@ if ($text == 'はい') {
 	for($i=0;$i<2;$i++){
 		$eventbox=$eventbox.$eventcords[$keys[$i]].",";
 	}
+    $keys=array_keys($randcords);
+    shuffle($keys);
+	for($i=0;$i<$boxnum[1][3];$i++){
+		$randbox=$randbox.$randcords[$keys[$i]].",";
+	}
   $response_format_text = [
     "type" => "template",
     "altText" => "サプライを表示しています",
@@ -271,8 +296,8 @@ if ($text == 'はい') {
             ]
           ],
 	  [
-            "title" => "イベント2",
-            "text" => $eventbox,
+            "title" => "イベント2ランドマーク2",
+            "text" => $eventbox."\n".$randbox,
             "actions" => [
               [
             "type" => "message",
