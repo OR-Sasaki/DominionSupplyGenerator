@@ -4,21 +4,7 @@ $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 $box=array("基本","陰謀","異郷","海辺");
 $num=array(0,0,0,0);
 $boxnum=array($box,$num);
-//ユーザーからのメッセージ取得
-$json_string = file_get_contents('php://input');
-$jsonObj = json_decode($json_string);
-$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
-//メッセージ取得
-$text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
-//ReplyToken取得
-$replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
-//メッセージ以外のときは何も返さず終了
-if($type != "text"){
-    exit;
-}
-//返信データ作成 
-if ($text == 'はい') {
-	$kihoncords=array("地下貯蔵庫",
+$kihoncords=array("地下貯蔵庫",
 		     "礼拝堂",
 		     "堀",
 		     "木こり",
@@ -45,7 +31,7 @@ if ($text == 'はい') {
 		     "書庫",
 		     "魔女",
 		     "冒険者");
-	$inboucords=array("手先",
+$inboucords=array("手先",
 		     "中庭",
 		     "秘密の部屋",
 		     "仮面舞踏会",
@@ -70,7 +56,7 @@ if ($text == 'はい') {
 		     "公爵",
 		     "貴族",
 		     "ハーレム");
-	$umibecords=array("原住民の村",
+$umibecords=array("原住民の村",
 			  "真珠採り",
 			  "抑留",
 			  "停泊所",
@@ -96,7 +82,7 @@ if ($text == 'はい') {
 			  "商船",
 			  "前哨地",
 			  "船着場");
-	$ikyoucords=array("岐路",
+$ikyoucords=array("岐路",
 			  "公爵夫人",
 			  "愚者の黄金",
 			  "オアシス",
@@ -122,6 +108,20 @@ if ($text == 'はい') {
 			  "埋蔵金",
 			  "国境の村",
 			  "農地");
+//ユーザーからのメッセージ取得
+$json_string = file_get_contents('php://input');
+$jsonObj = json_decode($json_string);
+$type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
+//メッセージ取得
+$text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
+//ReplyToken取得
+$replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
+//メッセージ以外のときは何も返さず終了
+if($type != "text"){
+    exit;
+}
+//返信データ作成 
+if ($text == 'はい') {
     for($i=0;$i<10;$i++){
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
@@ -167,24 +167,62 @@ if ($text == 'はい') {
   exit;
 } else if ($text == '違うやつお願い') {
 } else if($text == 'シャム'){
+	for($i=0;$i<10;$i++){
+	$randnum=rand(0,3);
+    	$boxnum[1][$randnum]++;
+    }
+    $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";
+    $keys=array_keys($kihoncords);
+    shuffle($keys);
+	for($i=0;$i<$boxnum[1][0];$i++){
+		$kihonbox=$kihonbox.$kihoncords[$keys[$i]].",";
+	}
+    $keys=array_keys($inboucords);
+    shuffle($keys);
+	for($i=0;$i<$boxnum[1][1];$i++){
+		$inboubox=$inboubox.$inboucords[$keys[$i]].",";
+	}
+    $keys=array_keys($ikyoucords);
+    shuffle($keys);
+	for($i=0;$i<$boxnum[1][2];$i++){
+		$ikyoubox=$ikyoubox.$ikyoucords[$keys[$i]].",";
+	}
+    $keys=array_keys($umibecords);
+    shuffle($keys);
+	for($i=0;$i<$boxnum[1][3];$i++){
+		$umibebox=$umibebox.$umibecords[$keys[$i]].",";
+	}
   $response_format_text = [
     "type" => "template",
-    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
+    "altText" => "候補を３つご案内しています。",
     "template" => [
-        "type" => "buttons",
-        "text" => "ｳｲｲｲｲｲｲｲｲｲｲｲｲ↑ｯｽ！どうも、",
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "シャムで～す！",
-              "text" => "はい"
-            ],
-            [
-              "type" => "message",
-              "label" => "シャムではない",
-              "text" => "いいえ"
+      "type" => "carousel",
+      "columns" => [
+          [
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-1.jpg",
+            "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1],
+            "text" => $kihonbox.$inboubox,
+            "actions" => [
+              [
+            "type" => "message",
+            "label" => "もっかい",
+            "text" => "シャム"
+          ]
             ]
-        ]
+          ],
+          [
+            "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img2-2.jpg",
+            "title" => "異郷".$boxnum[1][2]."海辺".$boxnum[1][3],
+            "text" => $ikyoubox.$umibebox,
+            "actions" => [
+              [
+            "type" => "message",
+            "label" => "もっかい",
+            "text" => "シャム"
+              ]
+            ]
+          ],
+      ]
     ]
   ];
 }
