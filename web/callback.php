@@ -55,7 +55,7 @@ if ($text == 'はい') {
     "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
       "type" => "buttons",
-      "title" => "基本=".$boxnum[1][0]."陰謀=".$boxnum[1][1]."異郷=".$boxnum[1][2]."海辺=".$boxnum[1][3],
+      "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."異郷".$boxnum[1][2]."海辺".$boxnum[1][3],
       "actions" => [
           [
             "type" => "message",
