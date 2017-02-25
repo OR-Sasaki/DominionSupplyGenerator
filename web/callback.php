@@ -31,7 +31,7 @@ $kihoncords=array("地下貯蔵庫",
 		     "書庫",
 		     "魔女",
 		     "冒険者");
-$inboucords=array("手先",
+$inboucords=array("手先", 
 		     "中庭",
 		     "秘密の部屋",
 		     "仮面舞踏会",
