@@ -50,10 +50,11 @@ if ($text == 'はい') {
     }
   $response_format_text = [
     "type" => "template",
+    "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
       "type" => "buttons",
       "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."異郷".$boxnum[1][2]."海辺".$boxnum[1][3],
-      "text" => $testbox,
+      "text" => "ここにサプライが表示されます",
       "actions" => [
           [
             "type" => "message",
