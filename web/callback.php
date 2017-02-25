@@ -48,7 +48,6 @@ if ($text == 'はい') {
     for($i=0;$i<10;$i++){
     	$boxnum[1][rand(0,3)]++;
     }
-    $testbox="サプライが"."表示されます";
   $response_format_text = [
     "type" => "template",
     "template" => [
