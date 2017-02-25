@@ -1,9 +1,5 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
-//配列定義 
-$box=array("基本","陰謀","異郷","海辺");
-$num=array(0,0,0,0);
-$boxnum=array($box,$num);
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -18,16 +14,53 @@ if($type != "text"){
 }
 //返信データ作成
 if ($text == 'はい') {
-    //$key = array_rand($box);
+    //配列定義 
+    $box=array("基本","陰謀","異郷","海辺");
+    $num=array(0,0,0,0);
+    $boxnum=array($box,$num);
+    $cord=array(地下貯蔵庫,
+	       礼拝堂,
+	       堀,
+	       木こり,
+	       工房,
+	       村,
+	       改築,
+	       宰相,
+	       村,
+	       改築,
+	       鍛冶屋,
+	       金貸し,
+	       玉座の間,
+	       祝宴,
+	       泥棒,
+	       密偵,
+	       民兵,
+	       役人,
+	       庭園,
+	       市場,
+	       議事堂,
+	       研究,
+	       鉱山,
+	       祝祭,
+	       書庫,
+	       魔女,
+	       冒険者);
+    
+    $key = array_rand($cord);
     for($i=0;$i<10;$i++){
     	$boxnum[1][rand(0,3)]++;
     }
+    $returnbox="";
+    for($i=0;$i<4;$i++){
+    	for($j=0;$j<$boxnum[1][$i];$j++){
+    	$returnbox=$returnbox.$cord[$key];
+	}
+    }
   $response_format_text = [
     "type" => "template",
-    "altText" => "こんにちわ 何かご用ですか？（はい／いいえ）",
     "template" => [
         "type" => "buttons",
-        "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3],
+        "text" => "基本=".$boxnum[1][0]."陰謀=".$boxnum[1][1]."異郷=".$boxnum[1][2]."海辺=".$boxnum[1][3].$returnbox,
         "actions" => [
             [
               "type" => "message",
