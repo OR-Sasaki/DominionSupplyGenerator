@@ -49,12 +49,15 @@ if ($text == 'はい') {
     for($i=0;$i<10;$i++){
     	$boxnum[1][rand(0,3)]++;
     }
+    for($i=0;i<=3;$i++){
+    	$titlebox=$titlebox.$boxnum[0][$i].$boxnum[1][$i];
+    }
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
       "type" => "buttons",
-      "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."異郷".$boxnum[1][2]."海辺".$boxnum[1][3],
+      "title" => $titlebox,
       "text" => "ここにサプライが表示されます",
       "actions" => [
           [
