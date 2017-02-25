@@ -211,6 +211,7 @@ if ($text == 'はい') {
     	$boxnum[1][$randnum]++;
     }
     $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";$teikokubox="【帝】";
+    $eventbox="【イベ】";$randbox="【ランド】";
     $keys=array_keys($kihoncords);
     shuffle($keys);
 	for($i=0;$i<$boxnum[1][0];$i++){
@@ -235,6 +236,11 @@ if ($text == 'はい') {
     shuffle($keys);
 	for($i=0;$i<$boxnum[1][4];$i++){
 		$teikokubox=$teikokubox.$teikokucords[$keys[$i]].",";
+	}
+    $keys=array_keys($eventcords);
+    shuffle($keys);
+	for($i=0;$i<2;$i++){
+		$eventbox=$eventbox.$eventcords[$keys[$i]].",";
 	}
   $response_format_text = [
     "type" => "template",
@@ -265,8 +271,8 @@ if ($text == 'はい') {
             ]
           ],
 	  [
-            "title" => "帝国".$boxnum[1][4],
-            "text" => $teikokubox,
+            "title" => "イベント2",
+            "text" => $eventbox,
             "actions" => [
               [
             "type" => "message",
