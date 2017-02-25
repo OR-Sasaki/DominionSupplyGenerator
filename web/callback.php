@@ -14,7 +14,7 @@ $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 //メッセージ以外のときは何も返さず終了
 if($type != "text"){
-	exit;
+    exit;
 }
 //返信データ作成 
 if ($text == 'はい') {
