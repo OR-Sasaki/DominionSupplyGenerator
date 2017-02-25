@@ -196,7 +196,7 @@ if ($text == 'はい') {
 	$randnum=rand(0,4);
     	$boxnum[1][$randnum]++;
     }
-    $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";
+    $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";$teikokubox="【帝】";
     $keys=array_keys($kihoncords);
     shuffle($keys);
 	for($i=0;$i<$boxnum[1][0];$i++){
@@ -229,8 +229,8 @@ if ($text == 'はい') {
       "type" => "carousel",
       "columns" => [
           [
-            "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1],
-            "text" => $kihonbox."\n".$inboubox,
+            "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."海辺".$boxnum[1][3],
+            "text" => $kihonbox."\n".$inboubox."\n".$umibebox,
             "actions" => [
               [
             "type" => "message",
@@ -240,8 +240,8 @@ if ($text == 'はい') {
             ]
           ],
           [
-            "title" => "海辺".$boxnum[1][3]."異郷".$boxnum[1][2],
-            "text" => $umibebox."\n".$ikyoubox,
+            "title" => "異郷".$boxnum[1][2]."帝国".$boxnum[1][4],
+            "text" => $ikyoubox."\n".$teikokubox,
             "actions" => [
               [
             "type" => "message",
