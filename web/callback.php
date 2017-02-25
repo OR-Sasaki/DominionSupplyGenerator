@@ -50,10 +50,10 @@ if ($text == 'はい') {
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
     }
-    $keys=array_rand($kihoncords,$boxnum[1][0]);
+    $keys=array_rand($kihoncords,5);
     shuffle($keys);
     foreach($keys as $key){
-    	$testbox=$textbox.",".$kihoncords[$key];
+    	$testbox=$textbox.$kihoncords[$key].",";
     }
   $response_format_text = [
     "type" => "template",
