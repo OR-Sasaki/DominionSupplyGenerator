@@ -28,23 +28,8 @@ if ($text == 'はい') {
     }
   $response_format_text = [
     "type" => "template",
-    "altText" => "こちらのオリジナルメニューはいかがですか？",
     "template" => [
-      "type" => "buttons",
-      "title" => "カツカレー炒飯",
-      "text" => "基本は".$boxnum[1][0]"個"."\n"."陰謀は",
-      "actions" => [
-          [
-            "type" => "uri",
-            "label" => "動画を見る",
-            "uri" => "http://www.nicovideo.jp/watch/sm27636439"
-          ],
-          [
-            "type" => "message",
-            "label" => "違うやつ",
-            "text" => "違うやつお願い"
-          ]
-      ]
+      "text" => "基本は".$boxnum[1][0]"個",
     ]
   ];
 } else if ($text == 'いいえ') {
