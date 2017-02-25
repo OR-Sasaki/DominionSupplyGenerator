@@ -121,7 +121,6 @@ if ($text == 'はい') {
 			  "埋蔵金",
 			  "国境の村",
 			  "農地");
-	$inboucords=array(
     for($i=0;$i<10;$i++){
 	$randnum=rand(0,3);
     	$boxnum[1][$randnum]++;
