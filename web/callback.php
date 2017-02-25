@@ -18,7 +18,7 @@ if ($text == 'はい') {
     $box=array("基本","陰謀","異郷","海辺");
     $num=array(0,0,0,0);
     $boxnum=array($box,$num);
-    $cord=array("地下貯蔵庫",
+    $cords=array("地下貯蔵庫",
 	       "礼拝堂",
 	       "堀",
 	       "木こり",
@@ -46,28 +46,22 @@ if ($text == 'はい') {
 	       "魔女",
 	       "冒険者");
     
-    //$key = array_rand($cord);
+    //$key = array_rand($box);
     for($i=0;$i<10;$i++){
     	$boxnum[1][rand(0,3)]++;
     }
-    /*$returnbox="";
-    for($i=0;$i<4;$i++){
-    	for($j=0;$j<$boxnum[1][$i];$j++){
-    	$returnbox=$returnbox.$cord[$key];
-	}
-    }*/
   $response_format_text = [
     "type" => "template",
     "template" => [
-        "type" => "buttons",
-        "text" => "基本=".$boxnum[1][0]."陰謀=".$boxnum[1][1]."異郷=".$boxnum[1][2]."海辺=".$boxnum[1][3],
-        "actions" => [
-            [
-              "type" => "message",
-              "label" => "もう一回",
-              "text" => "はい"
-            ]
-        ]
+      "type" => "buttons",
+      "text" => "基本は".$boxnum[1][0].$boxnum[1][1].$boxnum[1][2].$boxnum[1][3],
+      "actions" => [
+          [
+            "type" => "message",
+            "label" => "もう一回",
+            "text" => "はい"
+          ]
+      ]
     ]
   ];
 } else if ($text == 'いいえ') {
