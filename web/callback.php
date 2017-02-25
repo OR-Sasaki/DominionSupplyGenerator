@@ -1,14 +1,7 @@
 <?php
 $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
-//ファイル読み込み
-$lines = file("kakutyo.csv");
-foreach($lines as $line){
-	$data[] = explode(",",$line);
-}
 //配列定義
 $box=array("いち","に","さん","よん","ご");
-//配列の中からランダムな要素のポインタを取得
-$key = array_rand($box);
 //ユーザーからのメッセージ取得
 $json_string = file_get_contents('php://input');
 $jsonObj = json_decode($json_string);
@@ -26,6 +19,12 @@ if($type != "text"){
 
 //返信データ作成
 if ($text == 'はい') {
+    //ファイル読み込み
+    $lines = file("kakutyo.csv");
+    foreach($lines as $line){
+    $data[] = explode(",",$line);}
+    //配列の中からランダムな要素のポインタを取得
+    $key = array_rand($box);
   $response_format_text = [
     "type" => "template",
     "altText" => "こちらのオリジナルメニューはいかがですか？",
@@ -33,7 +32,7 @@ if ($text == 'はい') {
       "type" => "buttons",
       "thumbnailImageUrl" => "https://" . $_SERVER['SERVER_NAME'] . "/img1.jpg",
       "title" => "カツカレー炒飯",
-      "text" => $data[0],
+      "text" => strval($data[0]),
       "actions" => [
           [
             "type" => "uri",
