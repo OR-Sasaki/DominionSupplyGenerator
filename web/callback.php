@@ -32,7 +32,7 @@ if ($text == 'はい') {
     "template" => [
       "type" => "buttons",
       "title" => "カツカレー炒飯",
-      "text" => "基本は".$boxnum[1][0]"個"."<br />"."陰謀は",
+      "text" => "基本は".$boxnum[1][0]"個"."\n"."陰謀は",
       "actions" => [
           [
             "type" => "uri",
