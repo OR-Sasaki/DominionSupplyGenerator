@@ -259,12 +259,12 @@ if ($text == 'はい') {
 	}
     $keys=array_keys($eventcords);
     shuffle($keys);
-	for($i=0;$i<2;$i++){
+	for($i=0;$i<1;$i++){
 		$eventbox=$eventbox.$eventcords[$keys[$i]].",";
 	}
     $keys=array_keys($randcords);
     shuffle($keys);
-	for($i=0;$i<2;$i++){
+	for($i=0;$i<1;$i++){
 		$randbox=$randbox.$randcords[$keys[$i]].",";
 	}
   $response_format_text = [
@@ -296,7 +296,7 @@ if ($text == 'はい') {
             ]
           ],
 	  [
-            "title" => "イベント2ランドマーク2",
+            "title" => "イベント1ランドマーク1",
             "text" => $eventbox."\n".$randbox,
             "actions" => [
               [
