@@ -3,7 +3,7 @@ $accessToken = getenv('LINE_CHANNEL_ACCESS_TOKEN');
 //配列定義 
 $box=array("基本","陰謀","異郷","海辺","帝国");
 $num=array(0,0,0,0,0); 
-$boxnum=array($box,$num);
+$boxnum=array($box,$num); 
 $kihoncords=array("地下貯蔵庫",
 		     "礼拝堂",
 		     "堀",
@@ -179,54 +179,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if($type != "text"){
     exit;
 }
-//返信データ作成 
-if ($text == 'はい') {
-    for($i=0;$i<10;$i++){
-	$randnum=rand(0,3);
-    	$boxnum[1][$randnum]++;
-    }
-    $kihonbox="【基】";$inboubox="【陰】";$umibebox="【海】";$ikyoubox="【異】";
-    $keys=array_keys($kihoncords);
-    shuffle($keys);
-	for($i=0;$i<$boxnum[1][0];$i++){
-		$kihonbox=$kihonbox.$kihoncords[$keys[$i]].",";
-	}
-    $keys=array_keys($inboucords);
-    shuffle($keys);
-	for($i=0;$i<$boxnum[1][1];$i++){
-		$inboubox=$inboubox.$inboucords[$keys[$i]].",";
-	}
-    $keys=array_keys($ikyoucords);
-    shuffle($keys);
-	for($i=0;$i<$boxnum[1][2];$i++){
-		$ikyoubox=$ikyoubox.$ikyoucords[$keys[$i]].",";
-	}
-    $keys=array_keys($umibecords);
-    shuffle($keys);
-	for($i=0;$i<$boxnum[1][3];$i++){
-		$umibebox=$umibebox.$umibecords[$keys[$i]].",";
-	}
-  $response_format_text = [
-    "type" => "template",
-    "altText" => "こちらのオリジナルメニューはいかがですか？",
-    "template" => [
-      "type" => "buttons",
-      "title" => "基本".$boxnum[1][0]."陰謀".$boxnum[1][1]."異郷".$boxnum[1][2]."海辺".$boxnum[1][3],
-      "text" => $kihonbox.$inboubox.$ikyoubox.$umibebox,
-      "actions" => [
-          [
-            "type" => "message",
-            "label" => "もっかい",
-            "text" => "はい"
-          ]
-      ]
-    ]
-  ];
-} else if ($text == 'いいえ') {
-  exit;
-} else if ($text == '違うやつお願い') {
-} else if($text == 'シャム'){
-	for($i=0;$i<10;$i++){
+for($i=0;$i<10;$i++){
 	$randnum=rand(0,4);
     	$boxnum[1][$randnum]++;
     }
@@ -267,6 +220,13 @@ if ($text == 'はい') {
 	for($i=0;$i<1;$i++){
 		$randbox=$randbox.$randcords[$keys[$i]].",";
 	}
+//返信データ作成 
+if ($text == 'DDY') {
+	$response_format_text = [
+	"type"=>"text",
+        "text"=>$kihonbox."\n".$inboubox."\n".$umibebox."\n".$ikyoubox."\n".$teikokubox."\n".$eventbox."\n".$randbox];
+} else if($text == 'シャム'){
+	
   $response_format_text = [
     "type" => "template",
     "altText" => "サプライを表示しています",
