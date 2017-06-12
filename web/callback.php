@@ -225,7 +225,7 @@ if ($text == 'DDY') {
 	$response_format_text = [
 	"type"=>"text",
         "text"=>$kihonbox."\n".$inboubox."\n".$umibebox."\n".$ikyoubox."\n".$teikokubox."\n".$eventbox."\n".$randbox];
-} else if($text == 'シャム'){
+} else if($text == 'DY'){
 	
   $response_format_text = [
     "type" => "template",
@@ -240,7 +240,7 @@ if ($text == 'DDY') {
               [
             "type" => "message",
             "label" => "もっかい",
-            "text" => "シャム"
+            "text" => "DY"
           ]
             ]
           ],
@@ -251,7 +251,7 @@ if ($text == 'DDY') {
               [
             "type" => "message",
             "label" => "もっかい",
-            "text" => "シャム"
+            "text" => "DY"
               ]
             ]
           ],
@@ -262,7 +262,7 @@ if ($text == 'DDY') {
               [
             "type" => "message",
             "label" => "もっかい",
-            "text" => "シャム"
+            "text" => "DY"
               ]
             ]
           ],
