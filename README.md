@@ -1,7 +1,10 @@
+ドミニオンサプライジェネレーター
+
 以下URLのソースを改変したものです。
 https://bita.jp/dml/line-messaging-api-exp
 
-
+LineID
+@luh2240o
 
 
 #LINE Messaging APIで追加になったメッセージタイプを試してみるスクリプトです。
